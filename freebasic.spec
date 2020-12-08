@@ -1,6 +1,6 @@
 Name:		freebasic
 Version:	1.07.1
-Release:	2
+Release:	3
 Summary:	FreeBASIC language compiler
 License:	GPL
 Group:		Development/Languages/Other
@@ -37,10 +37,17 @@ Requires:       %{name}
 %description devel
 This package contains development files for FreeBASIC.
 
+%package doc
+Group:          Development/Languages/Other
+Summary:        FreeBasic manual (html files)
+BuildArch:      noarch
+
+%description doc
+This package contains manual (html files) for FreeBASIC.
+
 %package examples
 Group:          Development/Languages/Other
 Summary:        FreeBasic examples
-Requires:       %{name}
 BuildArch:      noarch
 
 %description examples
@@ -59,19 +66,26 @@ cd FreeBASIC-1.07.1-source-bootstrap
 make bootstrap
 
 cd ..
-make 'FBC=./FreeBASIC-1.07.1-source-bootstrap/bin/fbc -i ./FreeBASIC-1.07.1-source-bootstrap/inc' \
-ENABLE_LIB64=1
+make \
+%if %{__isa_bits} == 64
+ENABLE_LIB64=1 \
+%endif
+'FBC=./FreeBASIC-1.07.1-source-bootstrap/bin/fbc -i ./FreeBASIC-1.07.1-source-bootstrap/inc'
 
 %install
 mkdir -p %_prefix
-%make_install ENABLE_LIB64=1 prefix=%_prefix
+%make_install \
+%if %{__isa_bits} == 64
+ENABLE_LIB64=1 \
+%endif
+prefix=%_prefix
 
 # Install man page
 install -D doc/fbc.1 %buildroot%_mandir/man1/fbc.1
 
 %files
 %defattr(-,root,root)
-%doc *.txt doc/html/*
+%doc *.txt
 %_bindir/fbc
 %_libdir/freebasic
 %_mandir/man1/*
@@ -80,8 +94,12 @@ install -D doc/fbc.1 %buildroot%_mandir/man1/fbc.1
 %defattr(-,root,root)
 %_includedir/freebasic
 
+%files doc
+%defattr(-,root,root)
+%doc doc/html/*
+
 %files examples
 %defattr(-,root,root)
-%doc examples
+%doc examples/*
 
 %changelog

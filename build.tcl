@@ -7,11 +7,11 @@ set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Documentation/FB-
 set var [list wget $fileurl -O FB-manual-$version-html.zip]
 exec >@stdout 2>@stderr {*}$var
 
-set fileurl "https://sourceforge.net/projects/fbc/files/Source%20Code/FreeBASIC-$version-source.tar.xz"
+set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Source%20Code/FreeBASIC-$version-source.tar.xz"
 set var [list wget $fileurl -O FreeBASIC-$version-source.tar.xz]
 exec >@stdout 2>@stderr {*}$var
 
-set fileurl "https://sourceforge.net/projects/fbc/files/Source%20Code/FreeBASIC-$version-source-bootstrap.tar.xz"
+set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Source%20Code/FreeBASIC-$version-source-bootstrap.tar.xz"
 set var [list wget $fileurl -O FreeBASIC-$version-source-bootstrap.tar.xz]
 exec >@stdout 2>@stderr {*}$var
 
