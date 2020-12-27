@@ -1,7 +1,7 @@
 #!/usr/bin/tclsh
 
 set arch "x86_64"
-set version "1.07.1"
+set version "1.07.2"
 
 set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Documentation/FB-manual-$version-html.zip"
 set var [list wget $fileurl -O FB-manual-$version-html.zip]

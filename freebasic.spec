@@ -1,5 +1,5 @@
 Name:		freebasic
-Version:	1.07.1
+Version:	1.07.2
 Release:	3
 Summary:	FreeBASIC language compiler
 License:	GPL
@@ -62,7 +62,7 @@ unzip -q %SOURCE2 -d doc/html
 ln -s 00index.html doc/html/index.html
 
 %build
-cd FreeBASIC-1.07.1-source-bootstrap
+cd FreeBASIC-%version-source-bootstrap
 make bootstrap
 
 cd ..
@@ -70,7 +70,7 @@ make \
 %if %{__isa_bits} == 64
 ENABLE_LIB64=1 \
 %endif
-'FBC=./FreeBASIC-1.07.1-source-bootstrap/bin/fbc -i ./FreeBASIC-1.07.1-source-bootstrap/inc'
+'FBC=./FreeBASIC-%{version}-source-bootstrap/bin/fbc -i ./FreeBASIC-%{version}-source-bootstrap/inc'
 
 %install
 mkdir -p %_prefix
