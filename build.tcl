@@ -1,17 +1,17 @@
 #!/usr/bin/tclsh
 
 set arch "x86_64"
-set version "1.07.2"
+set version "1.07.3"
 
-set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Documentation/FB-manual-$version-html.zip"
+set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/FreeBASIC-1.07.3/Documentation/FB-manual-$version-html.zip"
 set var [list wget $fileurl -O FB-manual-$version-html.zip]
 exec >@stdout 2>@stderr {*}$var
 
-set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Source%20Code/FreeBASIC-$version-source.tar.xz"
+set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/FreeBASIC-1.07.3/Source/FreeBASIC-$version-source.tar.xz"
 set var [list wget $fileurl -O FreeBASIC-$version-source.tar.xz]
 exec >@stdout 2>@stderr {*}$var
 
-set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/Source%20Code/FreeBASIC-$version-source-bootstrap.tar.xz"
+set fileurl "https://pilotfiber.dl.sourceforge.net/project/fbc/FreeBASIC-1.07.3/Source/FreeBASIC-$version-source-bootstrap.tar.xz"
 set var [list wget $fileurl -O FreeBASIC-$version-source-bootstrap.tar.xz]
 exec >@stdout 2>@stderr {*}$var
 

@@ -1,5 +1,5 @@
 Name:		freebasic
-Version:	1.07.2
+Version:	1.07.3
 Release:	3
 Summary:	FreeBASIC language compiler
 License:	GPL-2.0-only
